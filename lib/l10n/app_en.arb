@@ -1,0 +1,9 @@
+{
+  "appTitle": "Di-list",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "tasks": "Tasks",
+  "addTask": "Add Task",
+  "noTasks": "No tasks yet!"
+}
