@@ -60,9 +60,8 @@ class HomeScreen extends ConsumerWidget {
             tooltip: isArabic ? 'تغيير اللغة' : 'Change Language',
             icon: const Icon(Icons.language),
             onPressed: () {
-              ref.read(localeProvider.notifier).state = isArabic
-                  ? const Locale('en')
-                  : const Locale('ar');
+              ref.read(localeProvider.notifier).state =
+                  isArabic ? const Locale('en') : const Locale('ar');
             },
           ),
           IconButton(
@@ -70,11 +69,10 @@ class HomeScreen extends ConsumerWidget {
             icon: const Icon(Icons.brightness_6),
             onPressed: () {
               final currentMode = ref.read(themeModeProvider);
-              ref
-                  .read(themeModeProvider.notifier)
-                  .state = currentMode == ThemeMode.dark
-                  ? ThemeMode.light
-                  : ThemeMode.dark;
+              ref.read(themeModeProvider.notifier).state =
+                  currentMode == ThemeMode.dark
+                      ? ThemeMode.light
+                      : ThemeMode.dark;
             },
           ),
         ],
