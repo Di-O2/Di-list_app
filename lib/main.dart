@@ -6,7 +6,7 @@ import 'providers/core_providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   final sharedPreferences = await SharedPreferences.getInstance();
 
   runApp(
