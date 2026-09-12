@@ -10,6 +10,7 @@ class HomeScreen extends ConsumerWidget {
     final titleController = TextEditingController();
     final descController = TextEditingController();
     final formKey = GlobalKey<FormState>();
+    final l10n = AppLocalizations.of(context);
 
     showModalBottomSheet(
       context: context,
@@ -29,7 +30,7 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Add New Task',
+                  l10n?.appTitle ?? 'Add New Task',
                   style: Theme.of(sheetContext).textTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
@@ -103,12 +104,15 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   const Icon(Icons.task_alt, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(
-                    noTasksText,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.grey[600],
-                        ),
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Text(
+                      noTasksText,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Colors.grey[600],
+                          ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
