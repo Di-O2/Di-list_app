@@ -7,11 +7,7 @@ final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    const ProviderScope(
-      child: NudgeApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: NudgeApp()));
 }
 
 class NudgeApp extends ConsumerWidget {
@@ -26,10 +22,7 @@ class NudgeApp extends ConsumerWidget {
       title: 'Nudge',
       debugShowCheckedModeBanner: false,
       locale: currentLocale,
-      supportedLocales: const [
-        Locale('ar'),
-        Locale('en'),
-      ],
+      supportedLocales: const [Locale('ar'), Locale('en')],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -67,8 +60,9 @@ class HomeScreen extends ConsumerWidget {
             tooltip: isArabic ? 'تغيير اللغة' : 'Change Language',
             icon: const Icon(Icons.language),
             onPressed: () {
-              ref.read(localeProvider.notifier).state =
-                  isArabic ? const Locale('en') : const Locale('ar');
+              ref.read(localeProvider.notifier).state = isArabic
+                  ? const Locale('en')
+                  : const Locale('ar');
             },
           ),
           IconButton(
@@ -76,8 +70,11 @@ class HomeScreen extends ConsumerWidget {
             icon: const Icon(Icons.brightness_6),
             onPressed: () {
               final currentMode = ref.read(themeModeProvider);
-              ref.read(themeModeProvider.notifier).state =
-                  currentMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+              ref
+                  .read(themeModeProvider.notifier)
+                  .state = currentMode == ThemeMode.dark
+                  ? ThemeMode.light
+                  : ThemeMode.dark;
             },
           ),
         ],
@@ -86,7 +83,11 @@ class HomeScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.check_circle_outline, size: 80, color: Colors.deepPurple),
+            const Icon(
+              Icons.check_circle_outline,
+              size: 80,
+              color: Colors.deepPurple,
+            ),
             const SizedBox(height: 16),
             Text(
               isArabic ? 'أهلاً بك في Nudge!' : 'Welcome to Nudge!',
@@ -94,7 +95,9 @@ class HomeScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              isArabic ? 'تم بناء وتجميع التطبيق بنجاح' : 'App built successfully',
+              isArabic
+                  ? 'تم بناء وتجميع التطبيق بنجاح'
+                  : 'App built successfully',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
